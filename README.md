@@ -5,7 +5,7 @@
 1. Make sure you have CMake and a C++ compiler (GCC or Clang) installed
 2. Clone the repository
    ```bash
-   git clone https://github.com/yourusername/cpp_project.git
+   git clone https://github.com/olivrrcode/cpp_project.git
    cd cpp_project
    ```
 3. Create a build directory and navigate to it

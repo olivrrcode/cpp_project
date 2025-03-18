@@ -9,7 +9,6 @@ void AttackStrategy::execute(std::shared_ptr<Entity> actor, std::shared_ptr<Enti
 
 void GuardStrategy::execute(std::shared_ptr<Entity> actor, std::shared_ptr<Entity> target)
 {
-    // Only Monks can guard
     auto monk = std::dynamic_pointer_cast<Monk>(actor);
     if (monk)
     {

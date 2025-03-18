@@ -11,7 +11,7 @@ void Monk::attack(std::shared_ptr<Entity> target)
     std::uniform_int_distribution<> dis(0, 1);
 
     if (dis(gen) == 1)
-    { // 50% chance of success
+    {
         std::cout << name << " attacks and hits for " << attackPoints << " damage!" << std::endl;
         target->addHealth(-attackPoints);
     }
@@ -28,7 +28,7 @@ void Monk::guard()
     std::uniform_int_distribution<> dis(0, 1);
 
     if (dis(gen) == 1)
-    { // 50% chance of success
+    {
         addHealth(1);
         std::cout << name << " guards successfully and recovers 1 HP!" << std::endl;
     }
@@ -41,7 +41,7 @@ void Monk::guard()
 void Monk::meditate()
 {
     std::cout << name << " meditates and fully restores health!" << std::endl;
-    setHealth(15); // Reset to full health
+    setHealth(15);
 }
 
 bool Monk::upgradeHealth()

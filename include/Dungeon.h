@@ -5,7 +5,6 @@
 #include <map>
 #include <random>
 
-// Singleton pattern for dungeon management
 class Dungeon
 {
 private:
@@ -15,7 +14,7 @@ private:
     std::shared_ptr<Room> currentRoom;
     std::mt19937 rng;
 
-    Dungeon(); // Private constructor for singleton
+    Dungeon();
     void generateDungeon(int numRooms);
     void connectRooms();
 

@@ -15,7 +15,7 @@ const std::string &Room::getDescription() const
 
 void Room::addConnection(RoomPtr room)
 {
-    // Add bidirectional connection if it doesn't exist
+
     bool found = false;
     for (const auto &r : connectedRooms)
     {
@@ -29,7 +29,7 @@ void Room::addConnection(RoomPtr room)
     if (!found)
     {
         connectedRooms.push_back(room);
-        room->addConnection(std::shared_ptr<Room>(this, [](Room *) {})); // Non-owning pointer
+        room->addConnection(std::shared_ptr<Room>(this, [](Room *) {}));
     }
 }
 
@@ -38,7 +38,6 @@ const std::vector<RoomPtr> &Room::getConnections() const
     return connectedRooms;
 }
 
-// EmptyRoom implementation
 EmptyRoom::EmptyRoom(int id) : Room(id, "An empty room. Perfect for meditation.") {}
 
 Room::Type EmptyRoom::getType() const
@@ -51,7 +50,6 @@ std::string EmptyRoom::enter()
     return "You enter an empty room. It's quiet here. You can meditate to restore your health.";
 }
 
-// MonsterRoom implementation
 MonsterRoom::MonsterRoom(int id)
     : Room(id, "A dark room with a monster lurking in the shadows."),
       monster(nullptr), defeated(false) {}
@@ -95,7 +93,6 @@ std::string MonsterRoom::enter()
     }
 }
 
-// UpgradeRoom implementation
 UpgradeRoom::UpgradeRoom(int id)
     : Room(id, "A mystical room with an ancient shrine."), used(false) {}
 
@@ -126,7 +123,6 @@ std::string UpgradeRoom::enter()
     }
 }
 
-// TreasureRoom implementation
 TreasureRoom::TreasureRoom(int id)
     : Room(id, "A glittering treasure room filled with gold and artifacts.") {}
 

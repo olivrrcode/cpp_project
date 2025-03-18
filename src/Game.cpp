@@ -20,7 +20,6 @@ void Game::initialize()
     player = std::make_shared<Monk>(playerName);
     dungeon = Dungeon::getInstance();
 
-    // Initialize dungeon with 8 rooms (can be adjusted)
     dungeon->initialize(8);
 
     std::cout << "\nYou are " << player->getName() << ", a monk seeking ancient treasure." << std::endl;
@@ -29,7 +28,6 @@ void Game::initialize()
     std::cout << "\n========================================\n"
               << std::endl;
 
-    // Start at the entrance room
     dungeon->setCurrentRoom(dungeon->getStartRoom());
     std::cout << dungeon->getCurrentRoom()->enter() << std::endl;
 }
@@ -41,7 +39,6 @@ void Game::run()
         auto currentRoom = dungeon->getCurrentRoom();
         displayRoomOptions();
 
-        // Handle room based on type
         switch (currentRoom->getType())
         {
         case Room::Type::EMPTY:
@@ -61,7 +58,6 @@ void Game::run()
         if (gameOver)
             break;
 
-        // Movement between rooms
         std::cout << "\nWhere would you like to go next?" << std::endl;
         auto connections = currentRoom->getConnections();
         for (size_t i = 0; i < connections.size(); ++i)
@@ -88,7 +84,6 @@ void Game::run()
         enterRoom(connections[choice - 1]);
     }
 
-    // Game over message
     if (playerWon)
     {
         std::cout << "\n========================================" << std::endl;
@@ -139,7 +134,6 @@ void Game::handleEmptyRoom()
         player->meditate();
     }
 
-    // Clear the input buffer
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
@@ -153,7 +147,6 @@ void Game::handleMonsterRoom(std::shared_ptr<MonsterRoom> room)
 
     std::cout << "A " << room->getMonster()->getName() << " attacks you!" << std::endl;
 
-    // Create and run combat
     Combat combat(player, room->getMonster());
     int turn = 0;
 
@@ -192,7 +185,6 @@ void Game::handleMonsterRoom(std::shared_ptr<MonsterRoom> room)
 
         turn++;
 
-        // Small delay between turns
         std::cout << "\nPress Enter to continue...";
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         std::cin.get();
@@ -251,7 +243,6 @@ void Game::handleUpgradeRoom(std::shared_ptr<UpgradeRoom> room)
         room->setUsed(true);
     }
 
-    // Clear the input buffer
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 

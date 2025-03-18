@@ -3,7 +3,6 @@
 
 class Entity;
 
-// Strategy pattern for combat actions
 class CombatStrategy
 {
 public:

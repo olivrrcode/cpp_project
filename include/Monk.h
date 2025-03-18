@@ -8,7 +8,7 @@ public:
     Monk(const std::string &name);
     void attack(std::shared_ptr<Entity> target) override;
     void guard();
-    void meditate();      // Restore full health
-    bool upgradeHealth(); // Increase max HP by 5
-    bool upgradeAttack(); // Increase attack by 2
+    void meditate();
+    bool upgradeHealth();
+    bool upgradeAttack();
 };

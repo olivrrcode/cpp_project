@@ -5,14 +5,14 @@
 Combat::Combat(std::shared_ptr<Entity> player, std::shared_ptr<Entity> monster)
     : player(player), monster(monster)
 {
-    // Initialize available strategies
+
     strategies.push_back(std::make_shared<AttackStrategy>());
     strategies.push_back(std::make_shared<GuardStrategy>());
 }
 
 bool Combat::isPlayerTurn(int turn) const
 {
-    return turn % 2 == 0; // Even turns are player turns
+    return turn % 2 == 0;
 }
 
 bool Combat::isOver() const
@@ -28,18 +28,18 @@ bool Combat::playerWon() const
 void Combat::playerAction(int choice)
 {
     if (choice == 0)
-    { // Attack
+    {
         strategies[0]->execute(player, monster);
     }
     else if (choice == 1)
-    { // Guard
+    {
         strategies[1]->execute(player, monster);
     }
 }
 
 void Combat::monsterAction()
 {
-    // Monsters always attack (could be extended with more sophisticated AI)
+
     strategies[0]->execute(monster, player);
 }
 

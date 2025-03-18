@@ -33,7 +33,7 @@ public:
     const std::vector<RoomPtr> &getConnections() const;
 
     virtual Type getType() const = 0;
-    virtual std::string enter() = 0; // Player enters room
+    virtual std::string enter() = 0;
 };
 
 class EmptyRoom : public Room

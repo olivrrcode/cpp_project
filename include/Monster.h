@@ -9,7 +9,6 @@ public:
     void attack(std::shared_ptr<Entity> target) override;
 };
 
-// Concrete monster type
 class Goblin : public Monster
 {
 public:

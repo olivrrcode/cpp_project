@@ -31,16 +31,12 @@ void Dungeon::initialize(int numRooms)
 void Dungeon::generateDungeon(int numRooms)
 {
     if (numRooms < 5)
-        numRooms = 5; // Minimum 5 rooms
+        numRooms = 5;
 
-    // Create different room types
-    // First room is always empty (starting room)
     rooms.push_back(RoomFactory::createRoom(Room::Type::EMPTY, 0));
 
-    // Last room is always treasure
     std::shared_ptr<Room> treasureRoom = RoomFactory::createRoom(Room::Type::TREASURE, numRooms - 1);
 
-    // Create remaining rooms with different types
     for (int i = 1; i < numRooms - 1; ++i)
     {
         Room::Type type;
@@ -65,24 +61,18 @@ void Dungeon::generateDungeon(int numRooms)
         rooms.push_back(RoomFactory::createRoom(type, i));
     }
 
-    // Add treasure room last
     rooms.push_back(treasureRoom);
 
-    // Connect the rooms
     connectRooms();
 }
 
 void Dungeon::connectRooms()
 {
-    // Simple algorithm: create a path from start to treasure, then add some random connections
-
-    // First, create a direct path from start to treasure
     for (size_t i = 0; i < rooms.size() - 1; ++i)
     {
         rooms[i]->addConnection(rooms[i + 1]);
     }
 
-    // Add some random connections to make it more interesting
     std::uniform_int_distribution<> dis(0, rooms.size() - 1);
     int numExtraConnections = rooms.size() / 2;
 
@@ -91,9 +81,8 @@ void Dungeon::connectRooms()
         int from = dis(rng);
         int to = dis(rng);
 
-        // Avoid self-connections and duplicate connections
         if (from != to && from < to - 1)
-        { // Avoid short-circuiting the path too early
+        {
             rooms[from]->addConnection(rooms[to]);
         }
     }

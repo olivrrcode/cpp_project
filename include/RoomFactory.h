@@ -2,7 +2,6 @@
 #include "Room.h"
 #include <memory>
 
-// Factory pattern for creating different room types
 class RoomFactory
 {
 public:

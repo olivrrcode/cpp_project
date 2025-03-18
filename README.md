@@ -1,5 +1,3 @@
-# Oliver Atherton
-
 ## Build Instructions
 
 1. Make sure you have CMake and a C++ compiler (GCC or Clang) installed
@@ -27,7 +25,7 @@
 After building the project, you can run the application with:
 
 ```bash
-./cpp_project
+./game
 ```
 
 ## Dependencies

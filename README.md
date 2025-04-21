@@ -1,6 +1,6 @@
 ## Build Instructions
 
-1. Make sure you have CMake and a C++ compiler (GCC or Clang) installed
+1. Make sure you have CMake and a C++ compiler (GCC or Clang) installed then open the project
 2. Create a build directory and navigate to it
    ```bash
    mkdir build

@@ -1,20 +1,16 @@
 ## Build Instructions
 
 1. Make sure you have CMake and a C++ compiler (GCC or Clang) installed
-2. Clone and open the repository
-   ```bash
-   git clone https://github.com/olivrrcode/cpp_project.git
-   ```
-3. Create a build directory and navigate to it
+2. Create a build directory and navigate to it
    ```bash
    mkdir build
    cd build
    ```
-4. Generate the build files with CMake
+3. Generate the build files with CMake
    ```bash
    cmake ..
    ```
-5. Build the project
+4. Build the project
    ```bash
    make
    ```

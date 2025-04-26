@@ -1,3 +1,8 @@
+## Dependencies
+
+- C++17 or higher
+- CMake 3.10+
+
 ## Build Instructions
 
 1. Make sure you have CMake and a C++ compiler (GCC or Clang) installed then open the project
@@ -22,8 +27,3 @@ After building the project, you can run the application with:
 ```bash
 ./game
 ```
-
-## Dependencies
-
-- C++17 or higher
-- CMake 3.10+

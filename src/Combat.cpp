@@ -5,7 +5,6 @@
 Combat::Combat(std::shared_ptr<Entity> player, std::shared_ptr<Entity> monster)
     : player(player), monster(monster)
 {
-
     strategies.push_back(std::make_shared<AttackStrategy>());
     strategies.push_back(std::make_shared<GuardStrategy>());
 }
@@ -39,7 +38,6 @@ void Combat::playerAction(int choice)
 
 void Combat::monsterAction()
 {
-
     strategies[0]->execute(monster, player);
 }
 

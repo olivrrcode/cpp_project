@@ -20,7 +20,7 @@ void Game::initialize()
     player = std::make_shared<Monk>(playerName);
     dungeon = Dungeon::getInstance();
 
-    dungeon->initialize(8);
+    dungeon->initialize(10);
 
     std::cout << "\nYou are " << player->getName() << ", a monk seeking ancient treasure." << std::endl;
     std::cout << "Your journey begins at the entrance of a mysterious dungeon." << std::endl;
